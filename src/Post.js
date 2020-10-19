@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ forwardRef } from 'react';
 import './Post.css'
 
 import { Avatar, Button } from "@material-ui/core";
@@ -8,29 +8,29 @@ import RepeatIcon from "@material-ui/icons/Repeat";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import PublishIcon from "@material-ui/icons/Publish";
 
-function Post({displayName, username, verified, text, image, avatar}) {
+const Post = forwardRef(
+  ({ displayName, username, verified, text, image, avatar }, ref) => {
     return (
-        <div className="post">
-            <div className="post__avatar">
-          <Avatar src="https://kajabi-storefronts-production.global.ssl.fastly.net/kajabi-storefronts-production/themes/284832/settings_images/rLlCifhXRJiT0RoN2FjK_Logo_roundbackground_black.png" />
+      <div className="post" ref={ref}>
+        <div className="post__avatar">
+          <Avatar src={avatar} />
         </div>
         <div className="post__body">
           <div className="post__header">
             <div className="post__headerText">
               <h3>
-                name
+                {displayName}{" "}
                 <span className="post__headerSpecial">
-                  <VerifiedUserIcon className="post__badge" />
-                  username
+                  {verified && <VerifiedUserIcon className="post__badge" />} @
+                  {username}
                 </span>
               </h3>
             </div>
             <div className="post__headerDescription">
-              <p>Qui incididunt esse consectetur irure deserunt deserunt consectetur.
-              </p>
+              <p>{text}</p>
             </div>
           </div>
-          <img src="https://dummyimage.com/350x200/000/fff" alt="" />
+          <img src={image} alt="" />
           <div className="post__footer">
             <ChatBubbleOutlineIcon fontSize="small" />
             <RepeatIcon fontSize="small" />
@@ -38,9 +38,9 @@ function Post({displayName, username, verified, text, image, avatar}) {
             <PublishIcon fontSize="small" />
           </div>
         </div>
-            
-        </div>
-    )
-}
+      </div>
+    );
+  }
+);
 
 export default Post
