@@ -22,3 +22,22 @@
 .sidebarOption--active{
     color:var(--twitter-color);
 }
+
+/* Tablet responsive - hide text, show only icons */
+@media (max-width: 1024px) {
+    .sidebarOption {
+        justify-content: center;
+    }
+
+    .sidebarOption > .MuiSvgIcon-root {
+        padding: 12px;
+    }
+
+    .sidebarOption > h2 {
+        display: none;
+    }
+
+    .sidebarOption:hover {
+        border-radius: 50%;
+    }
+}

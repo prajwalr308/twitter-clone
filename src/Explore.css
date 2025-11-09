@@ -1,0 +1,234 @@
+.explore {
+    flex: 0.4;
+    border-right: 1px solid var(--twitter-background);
+    min-width: fit-content;
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+.explore::-webkit-scrollbar {
+    display: none;
+}
+
+.explore {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.explore__header {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 100;
+    padding: 8px 15px;
+    border-bottom: 1px solid var(--twitter-background);
+}
+
+.explore__searchContainer {
+    display: flex;
+    align-items: center;
+    background-color: var(--twitter-background);
+    border-radius: 30px;
+    padding: 12px 16px;
+}
+
+.explore__searchIcon {
+    color: #536471;
+    margin-right: 12px;
+}
+
+.explore__searchContainer input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 15px;
+    outline: none;
+}
+
+.explore__searchContainer input::placeholder {
+    color: #536471;
+}
+
+.explore__tabs {
+    display: flex;
+    border-bottom: 1px solid var(--twitter-background);
+    position: sticky;
+    top: 61px;
+    background-color: white;
+    z-index: 99;
+    overflow-x: auto;
+}
+
+.explore__tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.explore__tab {
+    padding: 15px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    color: #536471;
+    white-space: nowrap;
+    font-size: 15px;
+}
+
+.explore__tab:hover {
+    background-color: rgba(29, 155, 240, 0.1);
+}
+
+.explore__tab--active {
+    color: #0f1419;
+}
+
+.explore__tab--active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--twitter-color);
+    border-radius: 2px;
+}
+
+.explore__content {
+    padding-bottom: 20px;
+}
+
+.explore__section {
+    margin-top: 20px;
+}
+
+.explore__sectionTitle {
+    font-size: 20px;
+    font-weight: 800;
+    padding: 12px 15px;
+    margin: 0;
+}
+
+.trend {
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-bottom: 1px solid var(--twitter-background);
+}
+
+.trend:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.trend__category {
+    font-size: 13px;
+    color: #536471;
+    margin: 0 0 4px 0;
+}
+
+.trend__topic {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    color: #0f1419;
+}
+
+.trend__tweets {
+    font-size: 13px;
+    color: #536471;
+    margin: 0;
+}
+
+.followSuggestion {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-bottom: 1px solid var(--twitter-background);
+}
+
+.followSuggestion:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.followSuggestion__avatar {
+    width: 48px !important;
+    height: 48px !important;
+    margin-right: 12px;
+}
+
+.followSuggestion__info {
+    flex: 1;
+}
+
+.followSuggestion__name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f1419;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.followSuggestion__verified {
+    color: var(--twitter-color);
+    font-size: 14px;
+}
+
+.followSuggestion__username {
+    font-size: 15px;
+    color: #536471;
+    margin: 0;
+}
+
+.followSuggestion__button {
+    background-color: #0f1419;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 8px 16px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.followSuggestion__button:hover {
+    background-color: #272c30;
+}
+
+/* Tablet responsive */
+@media (max-width: 1024px) {
+    .explore {
+        flex: 0.85;
+        border-right: none;
+        padding-bottom: 60px;
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .explore {
+        flex: 1;
+        border: none;
+        min-width: 100%;
+        width: 100%;
+        padding-bottom: 60px;
+    }
+
+    .explore__header {
+        padding: 8px 12px;
+    }
+
+    .explore__searchContainer {
+        padding: 10px 14px;
+    }
+
+    .trend {
+        padding: 10px 12px;
+    }
+
+    .followSuggestion {
+        padding: 10px 12px;
+    }
+}

@@ -1,7 +1,9 @@
 .widgets {
     flex: 0.3;
+    overflow-y: auto;
+    height: 100vh;
   }
-  
+
   .widgets__input {
     display: flex;
     align-items: center;
@@ -11,16 +13,16 @@
     margin-top: 10px;
     margin-left: 20px;
   }
-  
+
   .widgets__input > input {
     border: none;
     background-color: var(--twitter-background);
   }
-  
+
   .widgets__searchIcon {
     color: gray;
   }
-  
+
   .widgets__widgetContainer {
     margin-top: 15px;
     margin-left: 20px;
@@ -28,8 +30,15 @@
     background-color: #f5f8fa;
     border-radius: 20px;
   }
-  
+
   .widgets__widgetContainer > h2 {
     font-size: 18px;
     font-weight: 800;
   }
+
+/* Tablet and Mobile responsive - hide widgets */
+@media (max-width: 1024px) {
+    .widgets {
+        display: none;
+    }
+}

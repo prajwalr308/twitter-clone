@@ -3,6 +3,7 @@
     border-right: 1px solid var(--twitter-background);
     min-width: fit-content;
     overflow-y: scroll;
+    height: 100vh;
 }
 .feed::-webkit-scrollbar {
     display: none;
@@ -11,7 +12,7 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
-  
+
 .feed__header {
     position:sticky;
     top:0;
@@ -25,3 +26,31 @@
     font-size: 20px;
     font-weight: 800;
   }
+
+/* Tablet responsive */
+@media (max-width: 1024px) {
+    .feed {
+        flex: 0.85;
+        border-right: none;
+        padding-bottom: 60px;
+    }
+}
+
+/* Mobile responsive - full width */
+@media (max-width: 768px) {
+    .feed {
+        flex: 1;
+        border: none;
+        min-width: 100%;
+        width: 100%;
+        padding-bottom: 60px;
+    }
+
+    .feed__header {
+        padding: 15px;
+    }
+
+    .feed__header > h2 {
+        font-size: 18px;
+    }
+}

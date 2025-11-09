@@ -10,4 +10,21 @@ body{
     margin-left:auto;
     margin-right:auto;
     padding: 0 10px;
+    overflow-x: hidden;
+}
+
+/* Tablet responsive - iPad and similar */
+@media (max-width: 1024px) {
+    .app {
+        max-width: 100%;
+        padding: 0;
+    }
+}
+
+/* Mobile responsive - phones */
+@media (max-width: 768px) {
+    .app {
+        padding: 0;
+        max-width: 100%;
+    }
 }

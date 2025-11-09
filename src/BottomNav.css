@@ -1,0 +1,51 @@
+.bottomNav {
+    display: none;
+}
+
+/* Show bottom nav on tablet and mobile */
+@media (max-width: 1024px) {
+    .bottomNav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: white;
+        border-top: 1px solid var(--twitter-background);
+        justify-content: space-around;
+        align-items: center;
+        padding: 8px 0;
+        z-index: 1000;
+        height: 53px;
+    }
+
+    .bottomNav__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        padding: 12px 20px;
+        transition: background-color 0.2s;
+    }
+
+    .bottomNav__icon:hover {
+        background-color: rgba(29, 155, 240, 0.1);
+        border-radius: 50%;
+    }
+
+    .bottomNav__icon > .MuiSvgIcon-root {
+        font-size: 26px;
+        color: #536471;
+    }
+
+    .bottomNav__icon--active > .MuiSvgIcon-root {
+        color: #0f1419;
+    }
+}
+
+/* Add padding to feed on mobile to account for bottom nav */
+@media (max-width: 1024px) {
+    body {
+        padding-bottom: 53px;
+    }
+}
