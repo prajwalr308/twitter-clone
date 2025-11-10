@@ -22,6 +22,25 @@
     margin-top: 20px;
   }
 
+  .post__footer__option {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 15px;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .post__footer__option:hover {
+    background-color: #e8f5fe;
+    color: var(--twitter-color);
+  }
+
+  .post__footer__option > span {
+    font-size: 14px;
+  }
+
   .post__headerDescription {
     margin-bottom: 10px;
     font-size: 15px;
@@ -46,6 +65,46 @@
   .post__avatar {
     padding: 20px;
   }
+
+.post__footer__option--retweeted {
+  color: #17bf63;
+}
+
+.post__footer__option--retweeted:hover {
+  background-color: #e8f5fe;
+  color: #17bf63;
+}
+
+.post__footer__option--favorited {
+  color: #e0245e;
+}
+
+.post__footer__option--favorited:hover {
+  background-color: #fce8f2;
+  color: #e0245e;
+}
+
+.post__commentBox {
+  display: flex;
+  margin-top: 10px;
+}
+
+.post__commentBox > input {
+  flex: 1;
+  border: 1px solid var(--twitter-background);
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.post__commentBox > button {
+  background-color: var(--twitter-color);
+  color: white;
+  font-weight: 900;
+  text-transform: inherit;
+  border-radius: 30px;
+  height: 40px;
+  margin-left: 10px;
+}
 
 /* Mobile responsive - better spacing and touch targets */
 @media (max-width: 768px) {

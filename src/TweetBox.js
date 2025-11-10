@@ -37,6 +37,10 @@ function TweetBox() {
   const sendTweet = (e) => {
     e.preventDefault();
 
+    if (!tweetMessage) {
+      return;
+    }
+
     db.collection("posts").add({
       displayName: "prajwal",
       username: "prajwalr308",
@@ -45,6 +49,9 @@ function TweetBox() {
       image: tweetImage,
       avatar:
         "https://kajabi-storefronts-production.global.ssl.fastly.net/kajabi-storefronts-production/themes/284832/settings_images/rLlCifhXRJiT0RoN2FjK_Logo_roundbackground_black.png",
+      comments: 0,
+      retweets: 0,
+      favorites: 0,
     });
 
     setTweetMessage("");
@@ -106,6 +113,7 @@ function TweetBox() {
           onClick={sendTweet}
           type="submit"
           className="tweetBox__tweetButton"
+          disabled={!tweetMessage}
         >
           Tweet
         </Button>
@@ -115,4 +123,4 @@ function TweetBox() {
     )
 }
 
-export default TweetBox
+export default TweetBox;

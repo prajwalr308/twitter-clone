@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Feed from './Feed';
 import Siderbar from './Siderbar';
@@ -8,39 +8,24 @@ import BottomNav from './BottomNav';
 import Notifications from './Notifications';
 import Messages from './Messages';
 import Explore from './Explore';
+import PostDetails from './PostDetails';
 
 function App() {
-  const [activeScreen, setActiveScreen] = useState('home');
-
-  const renderMainContent = () => {
-    switch(activeScreen) {
-      case 'home':
-        return <Feed />;
-      case 'explore':
-        return <Explore />;
-      case 'notifications':
-        return <Notifications />;
-      case 'messages':
-        return <Messages />;
-      default:
-        return <Feed />;
-    }
-  };
-
   return (
-    <div className="app">
-     {/* sidebar */}
-     <Siderbar activeScreen={activeScreen} setActiveScreen={setActiveScreen} />
-
-     {/* main content area */}
-     {renderMainContent()}
-
-     {/* widgets */}
-     <Widget />
-
-     {/* bottom navigation for mobile */}
-     <BottomNav activeScreen={activeScreen} setActiveScreen={setActiveScreen} />
-    </div>
+    <Router>
+      <div className="app">
+        <Siderbar />
+        <Switch>
+          <Route path="/" exact component={Feed} />
+          <Route path="/explore" component={Explore} />
+          <Route path="/notifications" component={Notifications} />
+          <Route path="/messages" component={Messages} />
+          <Route path="/post/:postId" component={PostDetails} />
+        </Switch>
+        <Widget />
+        <BottomNav />
+      </div>
+    </Router>
   );
 }
 

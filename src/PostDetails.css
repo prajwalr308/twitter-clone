@@ -1,0 +1,20 @@
+.postDetails {
+  flex: 0.6;
+  border-right: 1px solid var(--twitter-background);
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.postDetails::-webkit-scrollbar {
+  display: none;
+}
+
+.postDetails__comments {
+  padding: 20px;
+}
+
+.postDetails__comment {
+  border-bottom: 1px solid var(--twitter-background);
+  padding: 10px 0;
+}

@@ -1,37 +1,28 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './BottomNav.css';
 import HomeIcon from '@material-ui/icons/Home';
 import SearchIcon from '@material-ui/icons/Search';
 import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 
-function BottomNav({ activeScreen, setActiveScreen }) {
+function BottomNav() {
+    const location = useLocation();
+
     return (
         <div className="bottomNav">
-            <div
-                className={`bottomNav__icon ${activeScreen === 'home' ? 'bottomNav__icon--active' : ''}`}
-                onClick={() => setActiveScreen('home')}
-            >
+            <Link to="/" className={`bottomNav__icon ${location.pathname === '/' ? 'bottomNav__icon--active' : ''}`}>
                 <HomeIcon />
-            </div>
-            <div
-                className={`bottomNav__icon ${activeScreen === 'explore' ? 'bottomNav__icon--active' : ''}`}
-                onClick={() => setActiveScreen('explore')}
-            >
+            </Link>
+            <Link to="/explore" className={`bottomNav__icon ${location.pathname === '/explore' ? 'bottomNav__icon--active' : ''}`}>
                 <SearchIcon />
-            </div>
-            <div
-                className={`bottomNav__icon ${activeScreen === 'notifications' ? 'bottomNav__icon--active' : ''}`}
-                onClick={() => setActiveScreen('notifications')}
-            >
+            </Link>
+            <Link to="/notifications" className={`bottomNav__icon ${location.pathname === '/notifications' ? 'bottomNav__icon--active' : ''}`}>
                 <NotificationsNoneIcon />
-            </div>
-            <div
-                className={`bottomNav__icon ${activeScreen === 'messages' ? 'bottomNav__icon--active' : ''}`}
-                onClick={() => setActiveScreen('messages')}
-            >
+            </Link>
+            <Link to="/messages" className={`bottomNav__icon ${location.pathname === '/messages' ? 'bottomNav__icon--active' : ''}`}>
                 <MailOutlineIcon />
-            </div>
+            </Link>
         </div>
     );
 }

@@ -1,5 +1,6 @@
-import React from 'react'
-import './Sidebar.css'
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import './Sidebar.css';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import HomeIcon from '@material-ui/icons/Home';
 import SidebarOption from './SidebarOption';
@@ -12,35 +13,37 @@ import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { Button } from "@material-ui/core";
 
-function Siderbar({ activeScreen, setActiveScreen }) {
+function Siderbar() {
+    const location = useLocation();
+
     return (
         <div className="sidebar">
             {/* twitter icon */}
             <TwitterIcon className="sidebar__twitterIcon"/>
 
             <SidebarOption
-                active={activeScreen === 'home'}
+                active={location.pathname === '/'}
                 Icon={HomeIcon}
                 text="Home"
-                onClick={() => setActiveScreen('home')}
+                to="/"
             />
             <SidebarOption
-                active={activeScreen === 'explore'}
+                active={location.pathname === '/explore'}
                 Icon={SearchIcon}
                 text="Explore"
-                onClick={() => setActiveScreen('explore')}
+                to="/explore"
             />
             <SidebarOption
-                active={activeScreen === 'notifications'}
+                active={location.pathname === '/notifications'}
                 Icon={NotificationsNoneIcon}
                 text="Notifications"
-                onClick={() => setActiveScreen('notifications')}
+                to="/notifications"
             />
             <SidebarOption
-                active={activeScreen === 'messages'}
+                active={location.pathname === '/messages'}
                 Icon={MailOutlineIcon}
                 text="Messages"
-                onClick={() => setActiveScreen('messages')}
+                to="/messages"
             />
             <SidebarOption Icon={BookmarkBorderIcon} text="Bookmarks" />
             <SidebarOption Icon={ListAltIcon} text="Lists" />
@@ -55,4 +58,4 @@ function Siderbar({ activeScreen, setActiveScreen }) {
     )
 }
 
-export default Siderbar
+export default Siderbar;
